@@ -4,7 +4,6 @@ import com.ms.msemail.enums.StatusEmail;
 import com.ms.msemail.models.EmailModel;
 import com.ms.msemail.repositories.EmailRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.io.FileSystemResource;
 import org.springframework.mail.MailException;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
@@ -12,7 +11,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.mail.internet.MimeMessage;
-import java.io.File;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -35,8 +33,8 @@ public class EmailService {
             helper.setTo(emailModel.getEmailTo());
             helper.setSubject(emailModel.getSubject());
             helper.setText(emailModel.getText());
-
-            if (!files.isEmpty()){
+            
+            if (files != null){
                 for (MultipartFile file : files) {
                     helper.addAttachment(file.getOriginalFilename(), file);
                 }
