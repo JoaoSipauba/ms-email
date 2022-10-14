@@ -9,11 +9,15 @@ spring:
     hibernate:
       ddl-auto: update
 
+  rabbitmq:
+    addresses: amqps://nblxxobk:1WzX3eDk6aF0x-q7QS_EU3jWTPgzoK5f@jackal.rmq.cloudamqp.com/nblxxobk
+    queue: ms-email
+
   mail:
-    host: **********
+    host: email-smtp.sa-east-1.amazonaws.com
     port: 587
-    username: **********
-    password: **********
+    username: AKIAWTKIPISH7MJH72HB
+    password: BO33MQd4PLgBaDPfgq6XfadqTUEKNP7A7CL7BB6WeiSH
     properties:
       mail:
         smtp:
