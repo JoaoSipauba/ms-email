@@ -33,7 +33,7 @@ public class EmailService {
             helper.setTo(emailModel.getEmailTo());
             helper.setSubject(emailModel.getSubject());
             helper.setText(emailModel.getText());
-            
+
             if (files != null){
                 for (MultipartFile file : files) {
                     helper.addAttachment(file.getOriginalFilename(), file);

@@ -2,27 +2,27 @@ package com.ms.msemail.models;
 
 import com.ms.msemail.enums.StatusEmail;
 import lombok.Data;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.web.multipart.MultipartFile;
 
-import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDateTime;
-import java.util.UUID;
+import java.util.List;
 
 @Data
-@Entity
-@Table
+@Document(collection = "email")
 public class EmailModel implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private UUID emailId;
+    private String emailId;
     private String ownerRef;
     private String emailFrom;
     private String emailTo;
     private String subject;
-    @Column(columnDefinition = "TEXT")
     private String text;
+    private List<MultipartFile> attachment;
     private LocalDateTime sendDateEmail;
     private StatusEmail statusEmail;
 }
