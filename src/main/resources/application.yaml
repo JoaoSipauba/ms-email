@@ -1,6 +1,10 @@
 server:
   port: 8081
 spring:
+  datasource:
+    password: postgres
+    username: postgres
+    url: jdbc:postgresql://localhost:5432/ms-email
   data:
     mongodb:
       database: ms-email
